@@ -7,6 +7,8 @@
 #include <Vector>
 #include <iostream>
 #include <algorithm>
+# include <map>
+# include <set>
 
 using namespace std;
 
@@ -35,7 +37,46 @@ void largestK(vector<int>& arr, int k){
 
 }
 
-// function 3 : Valid paranthesis
+// function 3 : Valid paranthesis - solved in Leetcode 20
+bool isValid(string s) {
+    map<char,char>mymap;
+    mymap[')']= '(';
+    mymap[']']= '[';
+    mymap['}'] = '{';
+    set<char> allkeys = {'(', '[', '{'};
+    set<char> allval = {')', ']', '}'};
+
+    vector<char> astack;
+
+    for(char c: s){
+        // cout << c <<endl;
+
+        if (allkeys.count(c)){
+            astack.push_back(c);
+        }
+        else if (allval.count(c)){
+            if ((astack.size()!=0) && (astack.back() == mymap[c])) {
+
+                astack.pop_back();
+            }
+            else{
+                return false;}
+        }
+    }
+
+    //
+    // cout<<"Hi "<< astack.size()<<endl;
+    // for(auto i : astack){
+    //     cout<<i<<endl;
+    // }
+    if (astack.size() == 0){
+        return true;
+    }
+    else{
+
+    }
+        return false;
+}
 
 
 
