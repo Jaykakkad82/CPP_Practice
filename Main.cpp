@@ -36,6 +36,11 @@ vector<int> Sortoutput(vector<int> anArray){
     }
 
 
+   // Sorting function for 2d matrix:
+   bool sortMyway(vector <int> a, vector <int> b){
+    return a[1] < b[1] ;
+}
+
 
 int main(){
 
@@ -87,10 +92,7 @@ vector <int> myarr{8,2,5} ;
 //vector <int> myarr1;
 //cout << myarr1 << endl
 
-// Sort 2D vector based on second element
-//vector <vector<int>> arrToSort{{51,87},{-9,58},{123,0},{-78,7}};
 
-//sort(arrToSort.begin(),arrToSort.end(), way2sort);
 
  int a =0;
 
@@ -118,6 +120,18 @@ vector<int> examp{-2,8,5,7,9,16,3,9,15};
     cout<<"c1: "<<c1<<endl;  // float value is again converted to int
     cout<<"c2: "<< c2 <<endl;
 
+
+    // Sort 2D vector based on second element
+vector <vector<int>> arrToSort{{51,87},{-9,58},{123,0},{-78,7}};
+
+sort(arrToSort.begin(),arrToSort.end(), sortMyway);
+    for (auto i: arrToSort){
+        cout << '[';
+        for (int j: i){
+            cout << j << ", ";
+        }
+        cout << ']';
+    }
 
 return 0;
 
